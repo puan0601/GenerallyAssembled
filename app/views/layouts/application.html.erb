@@ -29,6 +29,7 @@
     <div class="col-sm-1 col-sm-offset-2">
       <h5><%= image_tag current_user[:image_url], :width=> "60px", :height=> "60px", :class=> "profile-pic" %>
       <%= link_to "Sign Out", "/signout", :class=> "standard-text"%>
+      <%= flash %>
       </h5>
     </div>
   </div>
@@ -49,7 +50,8 @@
       </div>
   <% end %>
   <!-- end of navigation -->
-<% if current_user %>
+  <% if current_user %>
+    <%= flash %>
     <%= yield %>
   <% end %>
 
