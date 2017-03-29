@@ -2,18 +2,22 @@
   <%= paginate @repos %>
 </div>
 
-  <% @repos.each do |repo| %>
+  <% @repos.each_with_index do |repo, i| %>
   <div class="thumbnail col-md-10 col-md-offset-1">
-    <div class="well title">
-      <h3 class="header-repos text-center"><%= repo.name %></h3>
+    <div class="well title row">
+      <div class="col-md-4 col-md-offset-4">
+        <h3 class="header-repos text-center"><%= repo.name %></h3>
+      </div>
+      <div class="col-md-3 col-md-offset-1">
+        <h4 class="header-repos">match score: <%= @repos.hits[i]['_score'] %></h4>
+      </div>
     </div>
     <hr>
     <p class="content-repos"><%= raw repo.content.truncate(1000, separator: ' ') %></p>
     <hr>
     <div class ="well repo-button-well">
-      <%= link_to "GitHub", "https://github.com/sf-wdi-labs/#{repo.name}", target: "_blank", class: "col-md-1 col-md-offset-4 btn btn-info"%>
+      <%= link_to "GitHub", "https://github.com/sf-wdi-labs/#{repo.name}", target: "_blank", class: "col-md-1 col-md-offset-5 btn btn-info"%>
       <%= link_to "Show", repo_path(repo), class: "col-md-1 btn btn-success" %>
-      <%= link_to "Favorite", "#", class: "col-md-1 btn btn-warning"%>
     </div>
   </div>
   <% end %>

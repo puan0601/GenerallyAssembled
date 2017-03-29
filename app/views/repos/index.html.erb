@@ -12,9 +12,8 @@
     <p class="content-repos"><%= raw repo.content.truncate(1000, separator: ' ') %></p>
     <hr>
     <div class ="well repo-button-well">
-      <%= link_to "GitHub", "https://github.com/sf-wdi-labs/#{repo.name}", target: "_blank", class: "col-md-1 col-md-offset-4 btn btn-info"%>
+      <%= link_to "GitHub", "https://github.com/sf-wdi-labs/#{repo.name}", target: "_blank", class: "col-md-1 col-md-offset-5 btn btn-info"%>
       <%= link_to "Show", repo_path(repo), class: "col-md-1 btn btn-success" %>
-      <%= link_to "Favorite", "#", class: "col-md-1 btn btn-warning"%>
     </div>
   </div>
 <% end %>
