@@ -15,7 +15,6 @@ task git_repos: :environment do
       ## otherwise goes to next repo
       next
     end
-    p readme.content.encoding
     rendered_readme_md = Base64.decode64 readme.content
     rendered_readme_HTML = markdown.render(rendered_readme_md)
     rendered_readme_HTML = rendered_readme_HTML.force_encoding("UTF-8")
